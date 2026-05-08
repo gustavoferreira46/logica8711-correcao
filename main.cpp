@@ -26,7 +26,6 @@ std::string regiao;
 std::string estado;
 std::string cidade;
 std::string bairro;
-std::string rua;
 
 
 
@@ -167,7 +166,7 @@ std::cout<<cep.length()<<std::endl;
 
       }
 
-      std::cout<<
+
 
 
 
@@ -175,6 +174,5 @@ std::cout<<cep.length()<<std::endl;
      return 0;
 
 }
-
 
 
