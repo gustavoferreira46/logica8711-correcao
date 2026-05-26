@@ -2,16 +2,15 @@
 
 int main (){
 
-  int numero, sorteado = 73;
+int soma = 0;
 
-  do{
-     std::cout<<"advinhe: ";
-     std::cin>>numero;
-     if (numero < sorteado) std::cout<<"Maior!"<<std::endl;
-     else if(numero > sorteado) std::cout<<"menor!"<<std::endl;
-  }while(numero != sorteado);
+  for(int i = 1; i <= 20; i++){
+    if(i % 2 == 0){
+          soma += i;
+    }
+  }
 
-std::cout<<"Acertou!!"<<std::endl;
+    std::cout<<"Soma dos pares de 1 a 20: "<<soma<<std::endl;
 
 return 0;
   }
