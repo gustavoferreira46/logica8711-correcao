@@ -1,29 +1,15 @@
 #include <iostream>
+#include <tuple>
+#include <string>
 
-bool ehPrimo(int numero){
-    if(numero <= 1){
-        return false;
-    }
-    
-    for(int i = 2; i < numero; i++){
-        if(numero % i == 0){
-            return false;
-        }
-    }
-    return true; 
-}
 
 int main() {
-    int numero;
 
-    std::cout<<"Digite um numero: "<<std::endl;
-    std::cin>>numero; 
+std::tuple<int, std::string, double> aluno(1, "Gustavo", 9.5);
 
-    if(ehPrimo(numero)){
-      std::cout<<numero<<" e primo!"<<std::endl;
-     }else{
-        std::cout<<numero<<" Nao e primo!"<<std::endl;
-     }
+std::cout<<"ID: "<<std::get<0>(aluno)<<"\n";
+std::cout<<"NOME "<<std::get<1>(aluno)<<"\n";
+std::cout<<"NOTA :"<<std::get<2>(aluno)<<"\n"; 
 
     return 0;
 }
