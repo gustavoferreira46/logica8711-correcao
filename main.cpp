@@ -5,26 +5,20 @@
 
 int main() {
 
-std::string nome;
-int idade;
-double altura;
+int fibonacci[10];
 
-std::cout<<"Digite o seu nome: "<<std::endl;
-std::getline(std::cin, nome);
+fibonacci[0] = 1;
+fibonacci[1] = 1;
 
-std::cout<<"Digite sua idade: "<<std::endl;
-std::cin>>idade;
+for(int i = 2; i < 10; i++){
+        fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+}
 
-std::cout<<"digite sua altura: "<<std::endl;
-std::cin>>altura;
+for(int i = 0; i < 10; i++){
+        std::cout<<fibonacci[i]<<"\n";
+}
 
-std::tuple<std::string, int, double> pessoa = std::make_tuple(nome, idade, altura);
 
-std::cout<<"\n --------- dados salvos na tupla ---------"<<std::endl;
-
-std::cout<<"nome: "<<std::get<0>(pessoa)<<std::endl;
-std::cout<<"Idade: "<<std::get<1>(pessoa)<<std::endl;
-std::cout<<"altura: "<<std::get<2>(pessoa)<<std::endl;
 
     return 0;
 }
