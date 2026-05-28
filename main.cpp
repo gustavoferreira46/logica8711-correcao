@@ -1,16 +1,28 @@
 #include <iostream>
 
 int fibonacci(int n){
-    if(n == 0) return 0;
-    if(n == 1) return 1;
+    std::cout<<"Calculando fib("<<n<<")"<<std::endl;
 
-    return fibonacci(n - 1) + fibonacci(n - 2);
+    if(n == 0){
+        std::cout<<"Fib(0) = 0 (parada)"<<std::endl;
+        return 0;
+    }
+    
+    if(n == 1){
+        std::cout<<"Fib(1) = 1 (parada!)"<<std::endl;
+        return 1;
+    }
+
+    std::cout<<"fib("<<n<<") = fib("<<(n-1)<<") + fib("<<(n-2)<<")\n";
+    int resultado = fibonacci(n - 1) + fibonacci(n - 2);
+    std::cout<<"fib(" << n <<") = " <<resultado<< "\n";
+    return resultado ;
 }
 
 
 int main() {
-   std::cout<<fibonacci(6)<<std::endl;
-
+   
+fibonacci(4);
 
     return 0;
 }
