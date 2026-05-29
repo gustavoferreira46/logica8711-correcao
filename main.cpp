@@ -1,23 +1,21 @@
 #include <iostream>
 
-int contarDigitos(int n){
-    if(n == 0) return 0;
+void tabuada(int numero, int multiplicador){
+    if(multiplicador == 0){
+        return;
+    }
 
-    return 1 + contarDigitos (n / 10);
+    tabuada(numero, multiplicador - 1);
+
+    std::cout<<numero<<" x "<<multiplicador<<" = "<<(numero * multiplicador)<<std::endl;
+
 }
 
 int main(){
 
-int numeroUsuario;
 
-std::cout<<"Digite um numero inteiro: "<<std::endl;
-std::cin>>numeroUsuario;
 
-if(numeroUsuario == 0){
-    std::cout<<"o numero 0 tem 1 digito. \n";
-    }else{
-        std::cout<<"O numero "<<numeroUsuario<<" tem "<<contarDigitos(numeroUsuario)<<" digitos. ";
-    }
+tabuada(5, 10);
 
 
 
