@@ -1,28 +1,25 @@
 #include <iostream>
 
-int fibonacci(int n){
-    std::cout<<"Calculando fib("<<n<<")"<<std::endl;
+int contarDigitos(int n){
+    if(n == 0) return 0;
 
-    if(n == 0){
-        std::cout<<"Fib(0) = 0 (parada)"<<std::endl;
-        return 0;
-    }
-    
-    if(n == 1){
-        std::cout<<"Fib(1) = 1 (parada!)"<<std::endl;
-        return 1;
-    }
-
-    std::cout<<"fib("<<n<<") = fib("<<(n-1)<<") + fib("<<(n-2)<<")\n";
-    int resultado = fibonacci(n - 1) + fibonacci(n - 2);
-    std::cout<<"fib(" << n <<") = " <<resultado<< "\n";
-    return resultado ;
+    return 1 + contarDigitos (n / 10);
 }
 
+int main(){
 
-int main() {
-   
-fibonacci(4);
+int numeroUsuario;
+
+std::cout<<"Digite um numero inteiro: "<<std::endl;
+std::cin>>numeroUsuario;
+
+if(numeroUsuario == 0){
+    std::cout<<"o numero 0 tem 1 digito. \n";
+    }else{
+        std::cout<<"O numero "<<numeroUsuario<<" tem "<<contarDigitos(numeroUsuario)<<" digitos. ";
+    }
+
+
 
     return 0;
 }
