@@ -9,15 +9,12 @@ struct pessoa{
 
 int main(){
 
-pessoa p1;
+pessoa p1 {"junior", 20, 1.80};
+pessoa p2 {"carlos", 19, 1.70};
 
-p1.nome = "Gustavo";
-p1.idade = 17;
-p1.altura = 1.73;
+std::cout<<p1.nome<<" tem "<<p1.idade<<" anos e mede "<<p1.altura<<" m "<<std::endl;
+std::cout<<p2.nome<<" tem "<<p2.idade<<" anos e mede "<<p2.altura<<"m ";
 
-std::cout<<"Nome: "<<p1.nome<<std::endl;
-std::cout<<"Idade: "<<p1.idade<<std::endl;
-std::cout<<"Altura: "<<p1.altura<<std::endl;
 
     return 0;
 }
