@@ -1,90 +1,135 @@
 #include <iostream>
 #include <string>
 
-struct Tarefa{
-    int id;
-    std::string descricao;
-    bool concluida;
+
+
+struct produto{
+int id;
+std::string descricao;
+bool concluida;
 };
 
-Tarefa tarefas[50];
-int totalTarefas = 0;
+produto produtos[50];
+int totalProdutos = 0;
 
 void adcionar(){
-    std::cout<<"\n --- Adcionar tarefas ---"<<std::endl;
+    std::cout<<"=== Adcionar produtos"<<std::endl;
 
-    std::cout<<"ID: ";
-    std::cin>>tarefas[totalTarefas].id;
+std::cout<<"Digite o id da tarefa: ";
+std::cin>>produtos[totalProdutos].id;
 
-    std::cin.ignore();
-    std::cout<<"Descricao: ";
-    std::getline(std::cin, tarefas[totalTarefas].descricao);
+std::cin.ignore();
 
-    tarefas[totalTarefas].concluida = false;
+produtos[totalProdutos].concluida = false;
 
-    totalTarefas++;
-    std::cout<<"Tarefa adcionada!"<<std::endl;
+totalProdutos++;
+std::cout<<"Tarefa adcionada!"<<std::endl;
 }
 
 void listar(){
-        if(totalTarefas == 0){
-            std::cout<<"\nNenhuma tarefa!"<<std::endl;
+
+    if(totalProdutos == 0){
+        std::cout<<"\n nenhuma tarefa adcionada!"<<std::endl;
+        return;
+    }
+        std::cout<<"\n=== produtos ==="<<std::endl;
+        for(int i = 0; i <totalProdutos; i++){
+            std::string status = produtos[i].concluida ? "S" : "N";
+            std::cout<<"["<<status<<"]"<<produtos[i].id<< " - " <<produtos[i].descricao<<std::endl;
+        }
+   
+}
+
+void deletarPoduto(){
+    if(totalProdutos == 0){
+        std::cout<<"Nenhum produto cadastrado!"<<std::endl;
+        return;
+    }
+    int idBuscando;
+    std::cout<<"\n digite o id do produto para deletar: ";
+    std::cin>>idBuscando;
+
+    for(int i = 0; i < totalProdutos; i++){
+        if(produtos [i].id == idBuscando){
+            for(int j = i; j < totalProdutos - 1; j++){
+                produtos [j] = produtos [j + 1];
+            }
+            totalProdutos--;
+            std::cout<<"produto deletado com sucesso!"<<std::endl;
             return;
         }
-        std::cout<<"\n --- Tarefas ---"<<std::endl;
-        for(int i = 0; i < totalTarefas; i++){
-            std::string status = tarefas[i].concluida ? "S" : "N";
-            std::cout<<"["<<status<<"]"<<tarefas[i].id<<" - "<<tarefas[i].descricao<<std::endl;
-        }
+    }
 }
-void marcarConcluida(){
+ void marcarConcluida(){
     int idBuscando;
     std::cout<<"\nid da tarefa";
     std::cin>>idBuscando;
 
-    for(int i = 0; i < totalTarefas; i++){
-        if(tarefas[i].id == idBuscando){
-            tarefas[i].concluida = true ;
+    bool achou = false;
+
+    for(int i = 0; i < totalProdutos; i++){
+        if(produtos[i].id == idBuscando){
+            produtos[i].concluida = true ;
+            achou = true;
+            std::cout<<"Tarefa marcada com concluida!"<<std::endl;
+            break;
        }
-       std::cout<<"tarefa nao encontrada!"<<std::endl;
+       if(!achou){
+         std::cout<<"tarefa nao encontrada!"<<std::endl;
+       }
+     
     }
-} void menu(){
-    std::cout<<"\n === TODO LIST ==="<<std::endl;
+}  void menu(){
+
+  std::cout<<"\n === TODO LIST ==="<<std::endl;
     std::cout<<"1. Adcionar"<<std::endl;
     std::cout<<"2. listar"<<std::endl;
     std::cout<<"3. marcar concluida"<<std::endl;
-    std::cout<<"4. sair"<<std::endl;
+    std::cout<<"4. deletar produto"<<std::endl;
+    std::cout<<"5. sair"<<std::endl;
     std::cout<<"escolha"<<std::endl;
-}
+    }
+
+
 
 int main(){
-
     int opcao;
 
-    while(true){
+    while (true){
         menu();
         std::cin>>opcao;
+            switch (opcao){
+                      
+    case 1: 
+        adcionar();
+        break;
+    
+    case 2:
+        listar();
+        break;
+    
+    case 3:
+        marcarConcluida();
+            break;
 
-        switch (opcao){
-            case 1:
-                adcionar();
-                break;
-            case 2:
-            listar();
-                break;
-            case 3:
-                marcarConcluida();
-                break;
             case 4:
-                std::cout<<"ate logo!!"<<std::endl;
-                return 0;
-            default:
-                std::cout<<"opcao invalida!"<<std::endl;
-        }
+            deletarPoduto();
+            break;
+    case 5:
+        std::cout<<"ate logo!"<<std::endl;
+        return 0;
+    default:
+    std::cout<<"opcao invalida"<<std::endl;
+
+            }
     }
+            
+            
+    
+    
+
+
 
     return 0;
 }
-
-
 
