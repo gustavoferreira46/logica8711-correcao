@@ -1,44 +1,38 @@
-<<<<<<< HEAD
-#include<iostream>
-#include<string>
-
-void torreDeHanoi(int n, std::string origem, std::string destino, std::string auxiliar) {
-    if (n == 1) {
-        std::cout << "Mover disco 1 de " << origem << " para " << destino << std::endl;
-        return;
-    }
-    torreDeHanoi(n - 1, origem, auxiliar, destino);
-    std::cout << "Mover disco " << n << " de " << origem << " para " << destino << std::endl;
-    torreDeHanoi(n - 1, auxiliar, destino, origem);
-}
-int main(){
-    int numDiscos;
-    std::cout << "Digite o número de discos: ";
-    std::cin >> numDiscos;
-
-    std::cout<<"\nSequencia de movimentos: "<<std::endl;
-    torreDeHanoi(numDiscos, "A", "C", "B");
-
-    std::cout<<"\nTotal de movimento: "<<(1 << numDiscos) - 1 << std::endl; 
-}
-=======
 #include <iostream>
-#include <string>
 
+void quickshort(int* arr, int esquerda, int direita){
+        if(esquerda >= direita) return;
 
+        int pivo = arr[direita];
+        int i = esquerda - 1;
 
+        for(int j = esquerda; j < direita; j++){
+            if(arr[j] <= pivo){
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[direita];
+        arr[direita] = temp;
+
+        quickshort(arr, esquerda, i);
+        quickshort(arr, i + 2, direita);
+}
 
 int main(){
 
-    int idade = 38;
+        int arr[] = {5, 2, 9, 1, 5, 6, 8};
+        int tamanho = 7;
 
-    std::string resultado = (idade >= 18) ? "maior de idade !" : "menor de idade!";
+        quickshort(arr, 0, tamanho - 1);
 
-    std::cout<<resultado<<std::endl;
+        for(int i = 0; i < tamanho; i++){
+                std::cout<<arr[i]<<" ";
+        }
 
-
-
-    return 0;
+        return 0;
 }
 
->>>>>>> 08d7f8d5bebcf8523b8d4adf4f04617216161083
