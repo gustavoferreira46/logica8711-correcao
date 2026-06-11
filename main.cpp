@@ -1,36 +1,22 @@
 #include<iostream>
-#include<iomanip>
+#include<string>
 
-int main(){ 
+void torreDeHanoi(int n, std::string origem, std::string destino, std::string auxiliar) {
+    if (n == 1) {
+        std::cout << "Mover disco 1 de " << origem << " para " << destino << std::endl;
+        return;
+    }
+    torreDeHanoi(n - 1, origem, auxiliar, destino);
+    std::cout << "Mover disco " << n << " de " << origem << " para " << destino << std::endl;
+    torreDeHanoi(n - 1, auxiliar, destino, origem);
+}
+int main(){
+    int numDiscos;
+    std::cout << "Digite o número de discos: ";
+    std::cin >> numDiscos;
 
-std::string nome;
-int idade;
-float altura;
+    std::cout<<"\nSequencia de movimentos: "<<std::endl;
+    torreDeHanoi(numDiscos, "A", "C", "B");
 
-
-
-        std::cout<<"qual seu nome: "<<std::endl;
-        std::cin>>nome;
-
-        std::cout<<"Bem vindo(a) "<<nome<<"!!"<<std::endl;
-
-
-
-        std::cout<<"Qual sua idade: "<<std::endl;
-        std::cin>>idade;
-
-        std::cout<<"Sua idade e: "<<idade<<"!!"<<std::endl;
-
-
-
-        std::cout<<"qual sua altura?: "<<std::endl;
-        std::cin>>altura;
-
-        std::cout<<"sua altura e: "<<altura<<"!!"<<std::endl;
-
-
-
-
-
-        return 0;
+    std::cout<<"\nTotal de movimento: "<<(1 << numDiscos) - 1 << std::endl; 
 }
