@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include<iostream>
 #include<string>
 
@@ -20,3 +21,24 @@ int main(){
 
     std::cout<<"\nTotal de movimento: "<<(1 << numDiscos) - 1 << std::endl; 
 }
+=======
+#include <iostream>
+#include <string>
+
+
+
+
+int main(){
+
+    int idade = 38;
+
+    std::string resultado = (idade >= 18) ? "maior de idade !" : "menor de idade!";
+
+    std::cout<<resultado<<std::endl;
+
+
+
+    return 0;
+}
+
+>>>>>>> 08d7f8d5bebcf8523b8d4adf4f04617216161083
