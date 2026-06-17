@@ -1,48 +1,34 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 
-struct jogador{
-        std::string nome;
+struct Apostaa{
         std::string time;
-        int gols;
+        int valor;
+        int odd;
 };
 
-int main (){
-
-        jogador jogadores[5];
-
-        std::cout<<"====== COPA - RANKING DE GOLEADORES ======"<<std::endl;
+int main(){
+        std::cout<<"====== CALCULADORA DE ApostaAS ======"<<std::endl;
         std::cout<<std::endl;
 
-        for(int i = 0; i < 5; i++){
+       Apostaa Apostaa;
 
-                std::cout<<"jogador "<<(i + 1)<<": "<<std::endl;
-                std::cout<<"nome: ";
-                std::cin>>jogadores[i].nome;
-                std::cout<<"gols: ";
-                std::cin >> jogadores[i].gols;
-                std::cout<<"time: ";
-                std::cin>>jogadores[i].time;
-                std::cout<<"gols: ";
-                std::cout<<std::endl;
-        }
+        std::cout<<"Time: ";
+        std::cin>>Apostaa.time;
 
-        std::cout<<"====== RANKING ======"<<std::endl;
+        std::cout<<"valor da Apostaa (R$): ";
+        std::cin>>Apostaa.valor;
+
+        std::cout<<"odd (multiplicador): ";
+        std::cin>>Apostaa.odd;
+
+        int ganho = Apostaa.valor * Apostaa.odd;
+        int lucro = ganho - Apostaa.valor;
+
         std::cout<<std::endl;
 
-        for(int i = 0; i < 5 - 1; i++){
-                for(int j = 0; j < 5 - 1; j++){
-                        if(jogadores[i].gols < jogadores[j + 1].gols){
-                                jogador temp = jogadores[i];
-                                jogadores [j] = jogadores[j + 1];
-                                jogadores [j+ 1] = temp;
-                        }
-                }
-        }
-        for(int i = 0; i < 5; i++){
-                std::cout<<(i + 1)<<"º - "<<jogadores[i].nome
-                <<" - "<<jogadores[i].time<<") - "
-                <<jogadores[i].gols<<" gols"<<std::endl;
-        }
-        return 0;
+        std::cout<<std::endl;
+        std::cout<<"====== RESULTADO ======"<<std::endl;
+        std::cout<<"voce Apostaou R$ "<<Apostaa.valor<<" no time "<<Apostaa.time<<" com odd "<<Apostaa.odd<<std::endl;
+        std::cout<<"se o time vencer, voce ganha R$ "<<ganho<<" e tem um lucro de R$ "<<lucro<<std::endl;
 }
