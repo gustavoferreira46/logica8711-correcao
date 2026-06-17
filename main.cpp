@@ -1,66 +1,48 @@
 #include <iostream>
 #include <string>
-#include <cctype>
+
+struct jogador{
+        std::string nome;
+        std::string time;
+        int gols;
+};
 
 int main (){
-   std::string palavra = "programacao";
-   std::string adivinhada = "";
-   int erros = 0;
-   int maxErros = 6;
-   bool ganhou = false;
 
-   for (int i = 0; i <palavra.length(); i++){
-        adivinhada += "_";
-   }
-std::cout<<" === JOGO DA FORCA === "<<std::endl;
-std::cout<<"Adivinhe a palavra! "<<std::endl;
-std::cout<<std::endl;
+        jogador jogadores[5];
 
-while (erros < maxErros && !ganhou){
-        std::cout<<"Palavra: ";
-        for(int i = 0; i <adivinhada.length(); i++){
-                std::cout<<adivinhada[i]<< "_";
-        }
-        std::cout<<std::endl;
-        std::cout<<"Erros: "<<erros<<"/"<<maxErros<<std::endl;
-
-        char letra;
-        std::cout<<"Digite uma letra: ";
-        std::cin>>letra;
-        letra = std::tolower(letra);
-
+        std::cout<<"====== COPA - RANKING DE GOLEADORES ======"<<std::endl;
         std::cout<<std::endl;
 
-        bool encontrou = false;
+        for(int i = 0; i < 5; i++){
 
-        for(int i = 0; i < palavra.length(); i++){
-                if(palavra[i] == letra){
-                        adivinhada[i] = letra;
-                        encontrou = true;
-                }
+                std::cout<<"jogador "<<(i + 1)<<": "<<std::endl;
+                std::cout<<"nome: ";
+                std::cin>>jogadores[i].nome;
+                std::cout<<"gols: ";
+                std::cin >> jogadores[i].gols;
+                std::cout<<"time: ";
+                std::cin>>jogadores[i].time;
+                std::cout<<"gols: ";
+                std::cout<<std::endl;
         }
 
-                if(!encontrou){
-                std::cout<<"Letra incorreta! "<<std::endl;
-                        erros++;
-                }else{
-                        std::cout<<"Letra correta! "<<std::endl;
-                }
-                if(adivinhada == palavra){
-                        ganhou = true; 
-                }
-}
+        std::cout<<"====== RANKING ======"<<std::endl;
+        std::cout<<std::endl;
 
-        std::cout<<"======="<<std::endl;
-        if(ganhou){
-                std::cout<<"Parabens, voce ganhou! "<<std::endl;
-                std::cout<<"A palavra era: "<<palavra<<std::endl;
-        }else{
-                std::cout<<"Voce perdeu! "<<std::endl;
-                std::cout<<"A palavra era: "<<palavra<<std::endl;
+        for(int i = 0; i < 5 - 1; i++){
+                for(int j = 0; j < 5 - 1; j++){
+                        if(jogadores[i].gols < jogadores[j + 1].gols){
+                                jogador temp = jogadores[i];
+                                jogadores [j] = jogadores[j + 1];
+                                jogadores [j+ 1] = temp;
+                        }
+                }
         }
-
-
-
+        for(int i = 0; i < 5; i++){
+                std::cout<<(i + 1)<<"º - "<<jogadores[i].nome
+                <<" - "<<jogadores[i].time<<") - "
+                <<jogadores[i].gols<<" gols"<<std::endl;
+        }
         return 0;
 }
