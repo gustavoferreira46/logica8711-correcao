@@ -1,43 +1,28 @@
-#include<iostream>
-#include<string>
+#include<iostream>      
+        int jogos;
+        int main(){
 
-// Padrão bom: Nome da estrutura começa com Maiúscula
-struct Jogador {
-    std::string nome;
-    int cartaoAmarelo;
-    int cartaoVermelho;
-};
+        std::cout<<"============ calculador de publico ==========="<<std::endl;
+        std::cout<<std::endl;
 
-int main () {
-    std::cout << "=== registro de cartoes ===" << std::endl;
-    std::cout << std::endl;
+        std::cout<<"Quantos jogos foram realizados?"<<std::endl;
+        std::cin>>jogos;
 
-   
-    Jogador jogador;
+        int somaPublico = 0;
 
-    std::cout << "Digite o nome do jogador: ";
-    std::cin >> jogador.nome;
+        for(int i = 1; i <= jogos; i++){
+                int publico;
+                std::cout<<"Quantas pessoas assistiram o jogo "<<i<<"?"<<std::endl;
+                std::cin>>publico;
+                somaPublico += publico;
+        }
 
-    std::cout << "Digite a quantidade de cartoes amarelos: ";
-    std::cin >> jogador.cartaoAmarelo;
+        int media = somaPublico / jogos;
 
-    std::cout << "Digite a quantidade de cartoes vermelhos: ";
-    std::cin >> jogador.cartaoVermelho;
+        std::cout<<std::endl;
+        std::cout<<" ====== RESULTADO ======"<<std::endl;       
+        std::cout<<"Media de publico foi de "<<media<<" pessoas por jogo."<<std::endl;
+        std::cout<<"Total de publico foi de "<<somaPublico<<" pessoas."<<std::endl;
 
-    std::cout << std::endl;
-    std::cout << "=== SITUACAO ===" << std::endl;
-
-
-    if(jogador.cartaoVermelho > 0) {
-        std::cout << "O jogador " << jogador.nome << " esta suspenso por ter recebido um cartao vermelho." << std::endl;
-        
-      }else if
-       ( jogador.cartaoAmarelo >= 2){
-        std::cout<<"O jogador " << jogador.nome << " esta suspenso por ter recebido dois cartoes amarelos." << std::endl;
-      
-      }else {      
-        std::cout << "O jogador " << jogador.nome << " esta liberado para jogar." << std::endl;
-    }
-
-    return 0;
-}
+        return 0;
+        }
