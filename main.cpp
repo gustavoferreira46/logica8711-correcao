@@ -1,28 +1,32 @@
 #include<iostream>      
-        int jogos;
-        int main(){
+#include<string>
 
-        std::cout<<"============ calculador de publico ==========="<<std::endl;
+struct Convocados {
+        std::string nome;
+        int numero;
+        std::string posicao;
+};
+
+int main(){
+        Convocados convocados [3];
+        std::cout<<"==== CONVOCAOO DA SELECAO ===="<<std::endl;
         std::cout<<std::endl;
 
-        std::cout<<"Quantos jogos foram realizados?"<<std::endl;
-        std::cin>>jogos;
-
-        int somaPublico = 0;
-
-        for(int i = 1; i <= jogos; i++){
-                int publico;
-                std::cout<<"Quantas pessoas assistiram o jogo "<<i<<"?"<<std::endl;
-                std::cin>>publico;
-                somaPublico += publico;
+        for(int i = 0; i < 3; i++){
+                std::cout<<"Jogador "<<(i + 1 )<<": "<<std::endl;
+                std::cout<<"Nome: "<<std::endl;
+                std::cin>>convocados[i].nome;
+                std::cout<<"Numero: ";
+                std::cin>>convocados[i].numero;
+                std::cout<<"Posicao: ";
+                std::cin>>convocados[i].posicao;
         }
 
-        int media = somaPublico / jogos;
-
+        std::cout<<"===== JOGADORES CONVOCADOS ====="<<std::endl;
         std::cout<<std::endl;
-        std::cout<<" ====== RESULTADO ======"<<std::endl;       
-        std::cout<<"Media de publico foi de "<<media<<" pessoas por jogo."<<std::endl;
-        std::cout<<"Total de publico foi de "<<somaPublico<<" pessoas."<<std::endl;
 
+        for(int i = 0; i < 3; i++){
+                std::cout<<convocados[i].numero<<" - "<<convocados[i].nome<<" ("<<convocados[i].posicao<<")"<<std::endl; 
+        }
         return 0;
-        }
+}
