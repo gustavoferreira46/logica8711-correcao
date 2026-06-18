@@ -1,25 +1,43 @@
 #include<iostream>
 #include<string>
 
-struct CampeonatosCopa{
-        int ano;
-        std::string campeao;
+// Padrão bom: Nome da estrutura começa com Maiúscula
+struct Jogador {
+    std::string nome;
+    int cartaoAmarelo;
+    int cartaoVermelho;
 };
 
-int main (){
-        CampeonatosCopa copa[5] = {
-                {2022, "Argentina"},
-                {2018, "França"},
-                {2014, "Alemanha"},
-                {2010, "Espanha"},
-                {2006, "Itália"},
-        };
+int main () {
+    std::cout << "=== registro de cartoes ===" << std::endl;
+    std::cout << std::endl;
 
-        std::cout<<"===== Campeoes da Copa ========"<<std::endl;
-        std::cout<<std::endl;
+   
+    Jogador jogador;
 
-        for(int i = 0; i < 5; i++){
-                std::cout<<copa[i].ano<<" - "<<copa[i].campeao<<std::endl;
-        }
-        return 0;
+    std::cout << "Digite o nome do jogador: ";
+    std::cin >> jogador.nome;
+
+    std::cout << "Digite a quantidade de cartoes amarelos: ";
+    std::cin >> jogador.cartaoAmarelo;
+
+    std::cout << "Digite a quantidade de cartoes vermelhos: ";
+    std::cin >> jogador.cartaoVermelho;
+
+    std::cout << std::endl;
+    std::cout << "=== SITUACAO ===" << std::endl;
+
+
+    if(jogador.cartaoVermelho > 0) {
+        std::cout << "O jogador " << jogador.nome << " esta suspenso por ter recebido um cartao vermelho." << std::endl;
+        
+      }else if
+       ( jogador.cartaoAmarelo >= 2){
+        std::cout<<"O jogador " << jogador.nome << " esta suspenso por ter recebido dois cartoes amarelos." << std::endl;
+      
+      }else {      
+        std::cout << "O jogador " << jogador.nome << " esta liberado para jogar." << std::endl;
+    }
+
+    return 0;
 }
