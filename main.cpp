@@ -3,50 +3,62 @@
 
 int main(){
 
-        int pilha[10];
-        int topo = -1;
+        int fila [10];
+        int fim = -1;
+        int inicio;
         int opcao;
 
-        std::cout<<"=== PILHA COM MENU ==="<<std::endl;
+        std::cout<<"=== FILA COM MENU ==="<<std::endl;
 
         while (true){
                 std::cout<<"Escolha uma opção:"<<std::endl;
-                std::cout<<"1 - Empilhar"<<std::endl;
-                std::cout<<"2 - Desempilhar"<<std::endl;
-                std::cout<<"3 - exibir pilha"<<std::endl;
+                std::cout<<"1 - enfileirar"<<std::endl;
+                std::cout<<"2 - desenfileirar"<<std::endl;
+                std::cout<<"3 - exibir fila"<<std::endl;
                 std::cout<<"4 - Sair"<<std::endl;
+                std::cout<<"Escolha: ";
                 std::cin>>opcao;
 
                 if(opcao == 1){
-                        if(topo < 9){
+                        if(fim < 10){
                                 int valor;
                                 std::cout<<"Digite o valor"<<std::endl;
                                 std::cin>>valor;
-                                topo++;
-                                pilha[topo];
-                                std::cout<<"Valor empilhado com sucesso!"<<std::endl;
+                                fim++;
+                                std::cout<<"Valor enfileirado com sucesso!"<<std::endl;
                         }else{
-                                std::cout<<"Pilha cheia!"<<std::endl;
+                                std::cout<<"fila cheia!"<<std::endl;
                         }
                 }
-                else if(opcao == 2){
-                        if(topo >= 0){
-                                std::cout<<"Removido: "<<pilha[topo]<<std::endl;
-                                topo--;
-                        }else{
-                                std::cout<<"Pilha vazia!"<<std::endl;
-                        }
-                }
-                else if(opcao == 3){
-                        if(topo >= 0){
-
-                        }
-                }
-                else if(opcao == 4){
-                        std::cout<<"Saindo..."<<std::endl;
-                        break;
-                }
+          else if(opcao == 2){
+        if(inicio < fim){
+            std::cout << "Removido: " << fila[inicio] << std::endl;
+            inicio++;
+        } else {
+            std::cout << "Fila vazia! Nao ha o que remover." << std::endl;
         }
+    }
+    else if(opcao == 3){
+        if(inicio < fim){
+            std::cout << "fila: ";
+            for(int i = inicio; i < fim; i++){
+               std::cout<<fila[i]<<" ";
+            }
+            std::cout<<std::endl;
+        } else {
+            std::cout << "fila vazia!" << std::endl;
+        }
+    }
+    else if(opcao == 4){
         
-        return 0;
+        std::cout << "Saindo..." << std::endl;
+        break;
+    }
+    else {
+      
+        std::cout << "Opcao invalida!" << std::endl;
+    }
 }
+return 0;
+}
+
