@@ -3,25 +3,36 @@
 
 int main(){
  
-int numeros[] = {1,2,3,4,5,6,7,8,9,10};
-int tamanho = 10;
+int numeros[] = {10,20,30,40,50,60,70,80};
+int tamanho = 8;
+int buscando;
 
-std::cout<<" === PARES E IMPARES === "<<std::endl;
+std::cout<<"=== BUSCAR NUMERO ==="<<std::endl;
 std::cout<<std::endl;
 
-std::cout<<"Pares: ";
+std::cout<<"Array: ";
 for(int i = 0; i < tamanho; i++){
-        if(numeros[i] % 2 == 0){
-                std::cout<<numeros[i]<<" ";
+    std::cout<<numeros[i]<<" ";
+}
+std::cout<<std::endl;
+
+std::cout<<"Digite o numero a buscar: ";
+std::cin>>buscando;
+
+int posicao = -1;
+
+for(int i = 0; i < tamanho; i++){
+        if(numeros[i] == buscando){
+                posicao = i;
+                break;
         }
 }
 std::cout<<std::endl;
-std::cout<<"impares: ";
-for(int i = 0; i < tamanho; i++){
-        if(numeros[i] % 2 != 0){
-                std::cout<<numeros[i]<<" ";
-        }
-        }
+if(posicao != -1){
+        std::cout<<"encontrado na posicao "<<posicao<<std::endl;
+}else{
+        std::cout<<"nao encontrado"<<std::endl;
+}
 return 0;
 }
 
