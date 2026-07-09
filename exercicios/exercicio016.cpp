@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 
-int main(){
+int main(){//ex16
 
     std::vector<int>numeros;
 
@@ -18,10 +18,18 @@ int main(){
     std::cout<<std::endl;
 
     std::cout<<"Tamanho: "<<std::endl;
+    
+
+    int posicao;
+    std::cout<<"Digite a posicao : "<<std::endl;
+    std::cin>>posicao;
+    numeros.erase(numeros.begin() + posicao);
 
     std::cout<<"Apos remover o ultimo: ";
     for(int i = 0; i < numeros.size(); i++){
         std::cout<<numeros[i]<<" ";
     }
+
+
     return 0;
 }
