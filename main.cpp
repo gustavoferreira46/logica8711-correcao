@@ -1,51 +1,41 @@
 #include <iostream> 
-
 #include <string> 
-
  
 
- 
+    int dobrarNum(int num){
+        return num * 2;
+    }
 
-    int main () { 
+    int triploNum(int num) {
+        return num * 3;
+    }
 
- 
+    int quadrado(int num){
+        return num * num;
+    }
 
-        std::string palavra; 
+       
 
-        std::string Pletra; 
+    int main () {   
 
-        std::string Uletra; 
+        int num;
+        std::cout<<"digite um numero para dobrar: ";
+        std::cin>>num;
+        
 
- 
+        std::cout<<"Digite outro numero para triplicar: ";
+        std::cin>>num;
+        
 
-        std::cout << "Digite uma palavra: "; 
+        std::cout<<"Digite o ultimo numero: ";
+        std::cin>>num;
 
-        std::cin >> palavra; 
 
- 
-
-        std::cout<<"a palavra digitada foi: "<<palavra<<std::endl; 
-
- 
-
-        if (palavra.length() > 0) { 
-
-            Pletra = palavra[0]; 
-
-            std::cout << "A primeira letra da palavra e: " << Pletra << std::endl; 
-
-        } 
-
- 
-
-        if (palavra.length() > 0) { 
-
-            Uletra = palavra[palavra.length() - 1]; 
-
-            std::cout << "A ultima letra da palavra e: " << Uletra << std::endl; 
-
-        } 
-
+        std::cout<<"==== RESPOSTAS ==="<<std::endl;
+        std::cout<<"o dobro de "<<num<<" e "<<dobrarNum(num)<<std::endl;
+        std::cout<<"o triplo de "<<num<<" e "<<triploNum(num)<<std::endl; 
+        std::cout<<"o quadrado de "<<num<<" e "<<quadrado(num)<<std::endl;
+        
  
 
         return 0; 
