@@ -1,43 +1,21 @@
-#include <iostream> 
-#include <string> 
- 
+#include <iostream>
+#include<cmath>
 
-    int dobrarNum(int num){
-        return num * 2;
-    }
+int calcularCubo(int num){
+    return static_cast<int>(pow(num, 3));
+}
 
-    int triploNum(int num) {
-        return num * 3;
-    }
+int main(){
 
-    int quadrado(int num){
-        return num * num;
-    }
+int a;
 
-       
+std::cout<<"Digite um numero inteiro: ";
+std::cin>>a;
 
-    int main () {   
+int cubo = calcularCubo(a);
 
-        int num;
-        std::cout<<"digite um numero para dobrar: ";
-        std::cin>>num;
-        
-
-        std::cout<<"Digite outro numero para triplicar: ";
-        std::cin>>num;
-        
-
-        std::cout<<"Digite o ultimo numero: ";
-        std::cin>>num;
+std::cout<<"O cubo do número "<<a<<" é: "<<cubo<<std::endl;
 
 
-        std::cout<<"==== RESPOSTAS ==="<<std::endl;
-        std::cout<<"o dobro de "<<num<<" e "<<dobrarNum(num)<<std::endl;
-        std::cout<<"o triplo de "<<num<<" e "<<triploNum(num)<<std::endl; 
-        std::cout<<"o quadrado de "<<num<<" e "<<quadrado(num)<<std::endl;
-        
- 
-
-        return 0; 
-
-    } 
+    return 0;
+}
