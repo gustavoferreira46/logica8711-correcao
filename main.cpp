@@ -4,11 +4,15 @@
 
 int main(){
 
-    std::cout<<"numeros impares de 1 ate 20: "<<std::endl;
+    int soma = 0;
 
-    for(int i = 1; i <= 20; i +=2){
-        std::cout<<i<<" "<<std::endl;
+    for(int i = 1; i <= 100; i++){
+        soma = soma + i;
+    
+      
     }
+
+    std::cout<<"Soma e: "<<soma<<std::endl;
 
     return 0;
 }
