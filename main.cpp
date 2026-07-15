@@ -1,19 +1,15 @@
 #include <iostream>
-#include<cmath>
 
-void tabuada(int numero, int multiplicador){
-    if(multiplicador == 0){
-        return;
-    }
 
-    tabuada (numero, multiplicador - 1);
-
-    std::cout<<numero<<" x "<<multiplicador<<" = "<<(numero * multiplicador)<<std::endl;
-}
 int main(){
 
-    tabuada(7, 10);
+    const int primeiroTermo = 1; //a1
+    const int ultimoTermo = 100; //an
+    const int n = 100; //quantidade total de numeros
 
+    int soma = ((primeiroTermo + ultimoTermo) * n )/2;
+
+    std::cout<<"a soma de todos os numeros de 1 a 100 e: "<<soma<<std::endl;
     
     return 0;
 }
