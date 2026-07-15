@@ -9,7 +9,11 @@ int main(){
 
     int soma = ((primeiroTermo + ultimoTermo) * n )/2;
 
-    std::cout<<"a soma de todos os numeros de 1 a 100 e: "<<soma<<std::endl;
-    
+       
+    std::cout<<"numeros pares de 1 ate 100: "<<std::endl;
+    for(int i = 2; i <= 100; i +=2){
+        std::cout<<i<<" "<<std::endl;
+    }
+
     return 0;
 }
