@@ -1,18 +1,19 @@
 #include <iostream>
 #include<cmath>
 
-
-int main(){
-
-    int soma = 0;
-
-    for(int i = 1; i <= 100; i++){
-        soma = soma + i;
-    
-      
+void tabuada(int numero, int multiplicador){
+    if(multiplicador == 0){
+        return;
     }
 
-    std::cout<<"Soma e: "<<soma<<std::endl;
+    tabuada (numero, multiplicador - 1);
 
+    std::cout<<numero<<" x "<<multiplicador<<" = "<<(numero * multiplicador)<<std::endl;
+}
+int main(){
+
+    tabuada(7, 10);
+
+    
     return 0;
 }
