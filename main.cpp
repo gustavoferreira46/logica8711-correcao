@@ -4,18 +4,11 @@
 
 int main(){
 
-    const double pi = 3.14;
-    
+    std::cout<<"numeros pares de 1 ate 20: "<<std::endl;
 
-    int raio;
-    std::cout<<"digite o raio do circulo: ";
-    std::cin>>raio;
-    
-    double area = pi* (raio * raio);
-
-    std::cout<<"a area do circulo e "<<area<<std::endl;
-
-    
+    for(int i = 2; i <= 20; i +=2){
+        std::cout<<i<<" "<<std::endl;
+    }
 
     return 0;
 }
