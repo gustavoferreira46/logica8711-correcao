@@ -4,9 +4,9 @@
 
 int main(){
 
-    std::cout<<"numeros pares de 1 ate 20: "<<std::endl;
+    std::cout<<"numeros impares de 1 ate 20: "<<std::endl;
 
-    for(int i = 2; i <= 20; i +=2){
+    for(int i = 1; i <= 20; i +=2){
         std::cout<<i<<" "<<std::endl;
     }
 
