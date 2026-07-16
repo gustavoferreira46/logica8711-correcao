@@ -1,19 +1,30 @@
 #include <iostream>
 
+bool ehPrimo(int numero){
+    if(numero <= 1){
+        return false;
+    }
+
+    for(int i = 2; i < numero; i++){
+        if(numero % i == 0){
+            return false;
+        }
+    }
+    return true;
+}
 
 int main(){
+    int numero;
 
-    const int primeiroTermo = 1; //a1
-    const int ultimoTermo = 100; //an
-    const int n = 100; //quantidade total de numeros
+    std::cout<<"Digite um numero: "<<std::endl;
+    std::cin>>numero;
 
-    int soma = ((primeiroTermo + ultimoTermo) * n )/2;
-
-       
-    std::cout<<"numeros pares de 1 ate 100: "<<std::endl;
-    for(int i = 2; i <= 100; i +=2){
-        std::cout<<i<<" "<<std::endl;
+    if(ehPrimo(numero)){
+        std::cout<<"e primo! "<<std::endl;
+    }else{
+        std::cout<<"nao e primo! "<<std::endl;
     }
+    
 
     return 0;
 }
