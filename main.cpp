@@ -3,16 +3,16 @@
 
     
 int main(){
-    int ingressos[5] = {6000, 8000, 10000, 12000, 15000};
-    int jogos = 5;
+    int numero [10] = {12, 87, 45, 3, 99, 28, 61, 7, 74, 50};
+    int contador = 0;
 
-double somaIngressos = 0;
+    for(int i = 0; i < 10; i++){
+        if(numero[i] > 50){
+            std::cout<<numero[i]<<" ";
+            contador++;
+        }
+    }
 
-for(int i = 0; i < jogos; i++){
-    somaIngressos += ingressos[i];
-}
-    double media = somaIngressos / jogos;
 
-    std::cout<<"a media de ingressos foi de "<<media<<std::endl;
     return 0;
 }
